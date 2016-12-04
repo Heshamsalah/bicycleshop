@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'font-awesome-sass'
 gem 'bootstrap', '~> 4.0.0.alpha5'
-
+gem 'devise'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end

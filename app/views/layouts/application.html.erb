@@ -8,7 +8,17 @@
 </head>
 <body >
   <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-    <a class="navbar-brand" href="#">Bicycle Shop</a>
+    <a class="navbar-brand" href="/">Bicycle Shop</a>
+
+    <% if user_signed_in? %>
+      <%= link_to "Sign Out", sign_out_path, method: :delete, data: {confirm: "are you sure?!"},  class: "btn btn-outline-danger" %>
+      <% if current_user.try(:admin) %>
+        <%= link_to "Add New Bike", new_bike_path,  class: "btn btn-outline-success" %>
+      <% end %>
+    <% else %>
+      <%= link_to "Sign In", sign_in_path, class: "btn btn-outline-primary" %>
+      <%= link_to "Sign Up", sign_up_path, class: "btn btn-outline-primary" %>
+    <% end %>
   </nav>
   <div id="wrapper" >
     <!-- Sidebar -->
@@ -24,6 +34,13 @@
     <!-- Page Content -->
     <div id="page-content-wrapper">
         <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <% flash.each do |name, msg| %>
+                <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+              <% end %>
+            </div>
+          </div>
           <div class="row">
             <div class="col-md-12">
               <%= yield %>

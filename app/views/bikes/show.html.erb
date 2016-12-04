@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  <a href="#">
+  <a href="<%= @bike_path %>">
       <%= @bike.name %>
   </a>
 <% end %>
@@ -11,12 +11,15 @@
       <%= @bike.desc %>
     </p>
     <ul class="list-group list-group-flush">
-      <!-- <li class="list-group-item"><strong>Name:</strong><%= @bike.name %></li> -->
       <li class="list-group-item"><strong>Style:</strong> <%= @bike.style %></li>
       <li class="list-group-item"><strong>Price:</strong> <%= @bike.price %> <i class="fa fa-usd" aria-hidden="true"></i></li>
-      <li class="list-group-item"><%= link_to 'Back', bikes_path, class: "btn btn-outline-primary" %></li>
+      <li class="list-group-item">
+        <%= link_to 'Back', bikes_path, class: "btn btn-outline-primary" %>
+        <% if current_user.try(:admin) %>
+          <%= link_to 'Edit', edit_bike_path(@bike), class: "btn btn-outline-primary" %>
+          <%= link_to 'Delete', @bike, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %>
+        <% end %>
+      </li>
     </ul>
-    <!-- <%= link_to 'Edit', edit_bike_path(@bike) %> | -->
-    <!-- <%= link_to 'Back', bikes_path, class: "btn btn-outline-primary" %> -->
   </div>
 </div>
