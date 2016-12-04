@@ -11,6 +11,19 @@
 // about supported directives.
 //
 //= require jquery
+//= require tether
+//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+// $(document).ready(function(){
+//   $("#menu-toggle").click(function(e) {
+//       e.preventDefault();
+//       $("#wrapper").toggleClass("toggled");
+//   });
+// });
+$(document).on("submit", "#test", p(e));
+
+function p(e){
+  e.preventDefault();
+}

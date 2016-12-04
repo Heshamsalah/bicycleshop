@@ -1,0 +1,29 @@
+<% content_for :title do %>
+  <a href="#">
+      Search
+  </a>
+<% end %>
+<div class="row">
+    <% @bikes.each do |bike| %>
+      <div class="col-md-4">
+        <div class="card" style="height: 350px;">
+          <%= link_to(bike) do %>
+            <img class="card-img-top" src="<%= bike.picurl %>" style="width: 100%; height: 170px;" alt="<%= bike.name %>">
+          <% end %>
+          <div class="card-block" style="border-top: 1px solid lightgrey;">
+            <h2 class="card-title"><%= bike.name %></h2>
+            <ul class="list-group list-group-flush">
+              <!-- <li class="list-group-item"><strong>Name:</strong><%= bike.name %></li> -->
+              <li class="list-group-item"><strong>Style:</strong> <%= bike.style %></li>
+              <li class="list-group-item"><strong>Price:</strong> <%= bike.price %> <i class="fa fa-usd" aria-hidden="true"></i></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <% end %>
+</div>
+
+<%= render 'searchform' %>
+<!-- <td><%#link_to 'Edit', edit_bike_path(bike) %></td> -->
+<!--<td><%# link_to 'Destroy', bike, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+<!-- <%# link_to 'New Bike', new_bike_path, class: "btn btn-primary" %> -->

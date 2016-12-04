@@ -1,0 +1,22 @@
+<% content_for :title do %>
+  <a href="#">
+      <%= @bike.name %>
+  </a>
+<% end %>
+<div class="card col-md-12">
+  <img class="img-thumbnail" src="<%= @bike.picurl %>" style="width: 100%; margin-top: 10px;" alt="<%= @bike.name %>">
+  <div class="card-block">
+    <h4><%= @bike.name %></h4>
+    <p>
+      <%= @bike.desc %>
+    </p>
+    <ul class="list-group list-group-flush">
+      <!-- <li class="list-group-item"><strong>Name:</strong><%= @bike.name %></li> -->
+      <li class="list-group-item"><strong>Style:</strong> <%= @bike.style %></li>
+      <li class="list-group-item"><strong>Price:</strong> <%= @bike.price %> <i class="fa fa-usd" aria-hidden="true"></i></li>
+      <li class="list-group-item"><%= link_to 'Back', bikes_path, class: "btn btn-outline-primary" %></li>
+    </ul>
+    <!-- <%= link_to 'Edit', edit_bike_path(@bike) %> | -->
+    <!-- <%= link_to 'Back', bikes_path, class: "btn btn-outline-primary" %> -->
+  </div>
+</div>
