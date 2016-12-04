@@ -17,12 +17,6 @@ class BikesController < ApplicationController
       max_price: params[:max_price],
       order: params[:order]
     }
-    # if params[:min_price] == ''
-    #   @@searchParams[:min_price] = 0
-    # end
-    # if params[:max_price] == ''
-    #   @@searchParams[:max_price] = 10000 #just because of heroku issue
-    # end
     @bikes = Bike.search(@@searchParams)
   end
 

@@ -1,9 +1,8 @@
 class Bike < ActiveRecord::Base
 
   def self.search(search)
-    k = "name LIKE ? AND style LIKE ?"
     query = []
-    query.push(k)
+    query.push("name LIKE ? AND style LIKE ?")
     query.push("%#{search[:name]}%")
     query.push("%#{search[:style]}%")
     if search[:name] || search[:style] || search[:max_price] || search[:min_price]
@@ -15,8 +14,7 @@ class Bike < ActiveRecord::Base
         query[0] = query[0] + "AND price < ?"
         query.push("#{search[:max_price]}")
       end
-      where(query).
-      order("#{search[:order]}")
+      where(query).order("#{search[:order]}")
     else
       all
     end
