@@ -1,28 +1,11 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Start the app with *rails server* command
+- on localhost, when you first login with an account it is automatically made admin
+  so you can add new bike or edit or delete existing ones.
+- when signing up for another accounts they dont have admin role.
+- admin can add new bikes and should provide the picture url of the bike.
+- the sidebar contains the search fields which can be searched with either of them
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+==Heroku deployed version
+- i deployed the app to heroku for live usage
